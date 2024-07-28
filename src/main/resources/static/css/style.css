@@ -1,0 +1,69 @@
+body {
+    background: url('/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #ffebcd; /* light color matching the background */
+}
+
+h1.form-heading, h2.form-heading {
+    color: #fff; /* white color for form headings */
+}
+
+.container {
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.6); /* semi-transparent background for better readability */
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff; /* white text inside the container */
+}
+
+.table {
+    margin-top: 20px;
+    color: #fff; /* white text for the table */
+}
+
+.table th, .table td {
+    color: #fff; /* ensure table text is white */
+}
+
+.btn {
+    margin-right: 5px;
+}
+
+a {
+    color: #ffebcd; /* link color */
+}
+
+a.btn {
+    color: #fff; /* button link color */
+}
+
+input, button {
+    color: #000; /* black text for form elements */
+}
+
+label {
+    color: #fff;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8); /* white background for the card with some transparency */
+    border: none;
+    border-radius: 10px;
+}
+
+.card-title {
+    color: #333;
+}

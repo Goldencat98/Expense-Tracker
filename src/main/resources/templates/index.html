@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Expense Tracker</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('body').addClass('loaded');
+            $('a').on('click', function(e) {
+                e.preventDefault();
+                var link = $(this).attr('href');
+                $('body').removeClass('loaded');
+                setTimeout(function() {
+                    window.location.href = link;
+                }, 500);
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Expense Tracker</h1>
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="expense : ${expenses}">
+            <td th:text="${expense.id}">1</td>
+            <td th:text="${expense.description}">Description</td>
+            <td th:text="${expense.amount}">Amount</td>
+            <td>
+                <a class="btn btn-primary btn-sm" th:href="@{/editExpense/{id}(id=${expense.id})}">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+                <a class="btn btn-danger btn-sm" th:href="@{/deleteExpense/{id}(id=${expense.id})}" onclick="return confirm('Are you sure you want to delete this expense?');">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h2>Total: <span th:text="${totalAmount}">0.00</span></h2>
+    <a class="btn btn-success mt-3" href="/addExpense">Add Expense</a>
+</div>
+</body>
+</html>
